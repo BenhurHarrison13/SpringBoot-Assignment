@@ -1,5 +1,6 @@
 package com.springboot.academicmanagemt.service;
 
+import com.springboot.academicmanagemt.entity.Address;
 import com.springboot.academicmanagemt.entity.Student;
 import com.springboot.academicmanagemt.repository.StudentRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,8 +33,8 @@ class StudentServiceTest {
     @Test
     void testGetAllStudents() {
         List<Student> Students = new ArrayList<>();
-        Students.add(new Student(1L, "John", "Waugh", "john.waugh",  new HashSet<>()));
-        Students.add(new Student(2L, "Steve", "Waugh", "steve.waugh",  new HashSet<>()));
+        Students.add(new Student(1L, "John", "Waugh", "john.waugh",  new HashSet<>(),new Address()));
+        Students.add(new Student(2L, "Steve", "Waugh", "steve.waugh",  new HashSet<>(),new Address()));
         when(studentRepository.findAll()).thenReturn(Students);
 
         List<Student> result = studentService.getAllStudents();
@@ -46,7 +47,7 @@ class StudentServiceTest {
 
     @Test
     void testSaveStudent() {
-        Student Student = new Student(1L, "John", "Waugh", "john.waugh",  new HashSet<>());
+        Student Student = new Student(1L, "John", "Waugh", "john.waugh",  new HashSet<>(),new Address());
         when(studentRepository.save(Student)).thenReturn(Student);
 
         Student result = studentService.createStudent(Student);

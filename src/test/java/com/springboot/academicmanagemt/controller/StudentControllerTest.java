@@ -1,5 +1,6 @@
 package com.springboot.academicmanagemt.controller;
 
+import com.springboot.academicmanagemt.entity.Address;
 import com.springboot.academicmanagemt.entity.Student;
 import com.springboot.academicmanagemt.rest.StudentController;
 import com.springboot.academicmanagemt.service.StudentService;
@@ -34,8 +35,8 @@ class StudentControllerTest {
     @Test
     void testGetAllStudents() {
         List<Student> students = new ArrayList<>();
-        students.add(new Student(1L, "John", "Doe", "john@example.com",new HashSet<>()));
-        students.add(new Student(2L, "Jane" ,"Smith", "jane@example.com",new HashSet<>()));
+        students.add(new Student(1L, "John", "Doe", "john@example.com",new HashSet<>(),new Address()));
+        students.add(new Student(2L, "Jane" ,"Smith", "jane@example.com",new HashSet<>(),new Address()));
         when(studentService.getAllStudents()).thenReturn(students);
         List<Student> result = studentController.getAllStudents();
         assertEquals(2, result.size());
@@ -46,7 +47,7 @@ class StudentControllerTest {
 
     @Test
     void testCreateStudent() {
-        Student student = new Student(1L, "John", "Doe", "john@example.com",new HashSet<>());
+        Student student = new Student(1L, "John", "Doe", "john@example.com",new HashSet<>(),new Address());
         when(studentService.createStudent(student)).thenReturn(student);
 
         Student result = studentController.createStudent(student);
@@ -59,7 +60,7 @@ class StudentControllerTest {
     @Test
     void testFindStudent() {
         Long studentId = 1L;
-        Student student = new Student(1L, "John", "Doe", "john@example.com",new HashSet<>());
+        Student student = new Student(1L, "John", "Doe", "john@example.com",new HashSet<>(),new Address());
         when(studentService.findStudent(studentId)).thenReturn(student);
 
         Student result = studentController.findStudent(studentId);

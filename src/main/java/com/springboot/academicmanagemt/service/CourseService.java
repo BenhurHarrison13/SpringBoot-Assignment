@@ -6,7 +6,6 @@ import com.springboot.academicmanagemt.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -51,7 +50,6 @@ public class CourseService {
         if (optionalCourse.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-
         Course course = optionalCourse.get();
         courseRepository.delete(course);
 

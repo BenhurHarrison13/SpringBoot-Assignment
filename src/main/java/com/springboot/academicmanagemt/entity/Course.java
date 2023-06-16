@@ -23,7 +23,7 @@ public class Course {
     private String name;
 
     @JsonIgnoreProperties("courses")
-    @ManyToMany(mappedBy = "courses",fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy = "courses",fetch = FetchType.LAZY)
     private Set<Student> students = new HashSet<>();
 
 }
