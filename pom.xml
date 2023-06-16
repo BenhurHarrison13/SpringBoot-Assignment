@@ -18,6 +18,11 @@
 		<spring-cloud.version>2022.0.3</spring-cloud.version>
 		<sonar.organization>benhurharrison13</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.exclusions>
+			src/main/java/com/springboot/academicmanagement/BasicSpringBootApplication.java,
+			src/main/java/com/springboot/academicmanagement/service/**,
+			src/main/java/com/springboot/academicmanagement/rest/**
+		</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -89,6 +94,11 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.9.0.2155</version>
+			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
